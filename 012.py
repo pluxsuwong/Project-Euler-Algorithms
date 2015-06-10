@@ -5,13 +5,16 @@ def check_divisors():
     ctr = 1 # Number of natural numbers already added
     tri_num = 1 # Triangle number
     while True:
+	x = 1
+	upper_bound = tri_num + 1
 	div_ctr = 0 # Divisor counter
-	for x in range(1, tri_num + 1): 
+	while x < upper_bound:
 	    if tri_num % x == 0:
 		div_ctr += 1
-	    if div_ctr > 500: # If > 500 divisors
+		upper_bound = tri_num / x
+	    if div_ctr > 250: # If > 500 divisors
 	        return tri_num
-	print "%d : %d" % (tri_num, div_ctr)
+	    x += 1
 	ctr += 1
 	tri_num += ctr
 
